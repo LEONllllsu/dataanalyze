@@ -3,11 +3,9 @@ from django.contrib.auth import get_user_model
 
 from datetime import datetime
 
-from dataResources.models import DataResource
-
-
 # Create your models here.
 User = get_user_model()
+
 
 class UserAddData(models.Model):
     """
@@ -22,5 +20,4 @@ class UserAddData(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user.name
-
+        return str(self.dataResource)

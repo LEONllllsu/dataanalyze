@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# AUTH_USER_MODEL = 'user'
+AUTH_USER_MODEL = 'users.UserProfile'
 
 
 # Application definition
@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user_operation',
-    'users',
-    'dataResources',
+    'user_operation.apps.UserOperationConfig',
+    'users.apps.UsersConfig',
+    'dataResources.apps.DataresourcesConfig',
+    'xadmin',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
