@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import xadmin
+from apps.Task.views import Task_go
+from apps.Task.views import show
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
+    path('task_go', Task_go, name='go_task'),
+    path('show', show)
 ]

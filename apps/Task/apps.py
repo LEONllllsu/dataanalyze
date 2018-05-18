@@ -1,0 +1,6 @@
+from django.apps import AppConfig
+
+
+class TaskConfig(AppConfig):
+    name = 'Task'
+    verbose_name = "任务表"

@@ -19,7 +19,6 @@ sys.path.insert(0, BASE_DIR)
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -33,7 +32,6 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Task.apps.TaskConfig',
     'user_operation.apps.UserOperationConfig',
     'users.apps.UsersConfig',
     'dataResources.apps.DataresourcesConfig',
+
     'xadmin',
     'crispy_forms',
 ]
@@ -81,13 +81,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'data_analyze.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'data_analyze',
         'USER': 'root',
         'PASSWORD': '83268826',
@@ -95,7 +94,6 @@ DATABASES = {
         'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -115,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -129,8 +126,8 @@ USE_L10N = True
 
 USE_TZ = False
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
