@@ -1,7 +1,8 @@
 from django.db import models
 from datetime import datetime
 
-from user_operation.models import UserAddData
+from users.models import UserProfile
+from Task.models import Task
 
 
 # Create your models here.
@@ -15,10 +16,14 @@ class DataResource(models.Model):
         (2, "txt"),
         (3, "csv")
     )
-    DataResources = models.ForeignKey(UserAddData, verbose_name="数据源", on_delete=models.CASCADE)
-    category = models.IntegerField(choices=DATA_TYPE, verbose_name="数据类别")
-    name = models.CharField(max_length=30, verbose_name="名字")
-    data_id = models.CharField(max_length=30, verbose_name="数据ID")
+    step1 = models.CharField(max_length=100, verbose_name="源文件名", default="")
+    step2 = models.CharField(max_length=100, verbose_name="源json文件", default="")
+    step3 = models.CharField(max_length=100, verbose_name="step3文件", default="")
+    step4 = models.CharField(max_length=100, verbose_name="step4文件", default="")
+    step5 = models.CharField(max_length=100, verbose_name="step5文件", default="")
+    user = models.ForeignKey(UserProfile, verbose_name="用户", on_delete=models.CASCADE, default="")
+    Task_id = models.ForeignKey(Task, verbose_name="任务编号", on_delete=models.CASCADE, default="")
+
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:

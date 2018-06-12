@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'user_operation.apps.UserOperationConfig',
     'users.apps.UsersConfig',
     'dataResources.apps.DataresourcesConfig',
-
+    'rest_framework',
     'xadmin',
     'crispy_forms',
 ]
@@ -131,3 +131,6 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+DATA_URL = '/data/'
+DATAFILES_DIRS = [os.path.join(BASE_DIR), 'data']

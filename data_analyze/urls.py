@@ -14,13 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from django.conf.urls import url
+
 import xadmin
 from apps.Task.views import Task_go
 from apps.Task.views import show
+from users.views import UsersListViewSet
+from rest_framework.documentation import include_docs_urls
+
+
+router = DefaultRouter()
+router.register('users',  UsersListViewSet)
+
+
+
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('task_go', Task_go, name='go_task'),
-    path('show', show)
+    path('show', show),
+    # path('2json', excel2json2.as_view(), name='2json')
+    url(r'^', include(router.urls)),
+
 ]
